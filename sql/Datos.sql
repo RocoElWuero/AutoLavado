@@ -1,0 +1,12 @@
+INSERT INTO empleado (idEmpleado,nombre,paterno,materno,telefono,correo,password) VALUES (1,'Pedro','Sanchez','Romero','1234567890','pedro-sanchez-romero@email.com','password'),(2,'Juan','Perez','Jolote','1234567891','juan-perez-jolote@email.com','password');
+INSERT INTO inventario (idInventario,nombre,cantidad) VALUES (1,'Jabon',30),(2,'Esponja',30);
+INSERT INTO tipoCarro (idTipoCarro,nombre) VALUES (1,'Golf'),(2,'Chrysler'),(3,'Liberty'),(4,'Escort');
+INSERT INTO paquete (idPaquete,nombre,precio) VALUES (1,'Basico',250),(2,'Completo',500),(3,'Premium',750),(4,'Basico',250);
+INSERT INTO servicio (idServicio,nombre,precio) VALUES (1,'Limpieza',250),(2,'Mantenimiento',500),(3,'Arreglo',750),(4,'Limpieza',250);
+INSERT INTO auto (idAuto,placas,fkTipoCarro) VALUES (1,'ABCDEF',1),(2,'GHIJKL',2),(3,'MNÑOPQ',3),(4,'RSTUVW',4);
+INSERT INTO cliente (idCliente,nombre,paterno,materno,telefono,correo,fkAuto) VALUES (1,'Jorge','Lopez','Rojas','1234567890','jorge-lopez-rojas@email.com',1),(2,'Rodrigo','Sanchez','Juan','1234567891','rodrigo-sanchez-juan@email.com',2),(3,'Jorge','Lopez','Rojas','1234567890','jorge-lopez-rojas@email.com',3),(4,'Rodrigo','Sanchez','Juan','1234567891','rodrigo-sanchez-juan@email.com',4);
+INSERT INTO venta (idVenta,fecha,fkCliente) VALUES (1,'2023-06-09',1),(2,'2023-06-09',2),(3,'2023-06-09',3),(4,'2023-06-09',4);
+INSERT INTO detalleVenta (idDetalleVenta,fecha,fkVenta,fkPaquete,fkServicio) VALUES (1,'2023-06-09',1,1,1),(2,'2023-06-09',2,2,2),(3,'2023-06-09',3,3,3),(4,'2023-06-09',4,4,4);
+INSERT INTO servicioEmpleado (idServicioEmpleado,fkServicio,fkEmpleado) VALUES (1,1,1),(2,2,2),(3,3,1),(4,4,2);
+INSERT INTO paqueteServicio (idPaqueteServicio,fkServicio,fkPaquete) VALUES (1,1,1),(2,2,2),(3,3,3),(4,4,4);
+INSERT INTO servicioInventario(idServicioInventario,fkServicio,fkInventario) VALUES (1,1,1),(2,2,2),(3,3,1),(4,4,2);

@@ -1,0 +1,59 @@
+body {
+	margin: 0;
+	padding: 0;
+	background-color: black;
+}
+.header {
+	background-color: #0068FF;
+	height: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: right;
+}
+a[href] {
+	color: white;
+	text-decoration: none;
+}
+div, input {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+input {
+	padding: 9px 25px;
+	background-color: rgba(0, 136, 169, 1);
+	border: none;
+	border-radius: 50px;
+	cursor: pointer;
+	transition: all 0.3s ease 0s;
+}
+input:hover {
+	background-color: rgba(0, 136, 169, 0.8);
+}
+input::placeholder {
+	color: white;
+}
+input[type="text"] {
+	color: white;
+}
+.container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 200px; /* Ajusta la altura del div según tus necesidades */
+}
+.background-image {
+	background-image: url("https://static.retail.autofact.cl/blog/c_img_740x370.ea3xf91k2alsmup.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: calc(100vh - 100px); /* Adjust the height based on your header height */
+}
+h1 {
+	color: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
