@@ -64,3 +64,8 @@ h1 {
 	align-items: center;
 	justify-content: center;
 }
+table,thead,th {
+	color: black;
+	background-color: white;
+	border: 1px solid black;
+}

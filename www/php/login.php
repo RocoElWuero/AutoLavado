@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	$status;
+	$status = 0;
 	if (!empty($_POST)) {
 		$correo = $_POST["email"];
 		$password = $_POST["password"];
