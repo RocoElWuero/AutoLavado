@@ -52,7 +52,7 @@ CREATE TABLE auto(
 	CONSTRAINT fkAutoTipoCarro
 		FOREIGN KEY (fkTipoCarro)
 		REFERENCES tipoCarro (idTipoCarro)
-		ON DELETE RESTRICT
+		ON DELETE CASCADE
 		ON UPDATE CASCADE
 );
 CREATE TABLE cliente(
@@ -68,7 +68,7 @@ CREATE TABLE cliente(
 	CONSTRAINT fkClienteAuto
 		FOREIGN KEY (fkAuto)
 		REFERENCES auto (idAuto)
-		ON DELETE RESTRICT
+		ON DELETE CASCADE
 		ON UPDATE CASCADE
 );
 CREATE TABLE venta(
@@ -80,7 +80,7 @@ CREATE TABLE venta(
 	CONSTRAINT fkVentaCliente
 		FOREIGN KEY (fkCliente)
 		REFERENCES cliente (idCliente)
-		ON DELETE RESTRICT
+		ON DELETE CASCADE
 		ON UPDATE CASCADE
 );
 --Terciarias
@@ -95,17 +95,17 @@ CREATE TABLE detalleVenta(
 	CONSTRAINT fkDetalleVentaVenta
 		FOREIGN KEY (fkVenta)
 		REFERENCES venta (idVenta)
-		ON DELETE RESTRICT
+		ON DELETE CASCADE
 		ON UPDATE CASCADE,
 	CONSTRAINT fkDetalleVentaPaquete
 		FOREIGN KEY (fkPaquete)
 		REFERENCES paquete (idPaquete)
-		ON DELETE RESTRICT
+		ON DELETE CASCADE
 		ON UPDATE CASCADE,
 	CONSTRAINT fkDetalleVentaServicio
 		FOREIGN KEY (fkServicio)
 		REFERENCES servicio (idServicio)
-		ON DELETE RESTRICT
+		ON DELETE CASCADE
 		ON UPDATE CASCADE
 );
 CREATE TABLE servicioEmpleado(
@@ -117,12 +117,12 @@ CREATE TABLE servicioEmpleado(
 	CONSTRAINT fkServicioEmpleadoServicio
 		FOREIGN KEY (fkServicio)
 		REFERENCES servicio (idServicio)
-		ON DELETE RESTRICT
+		ON DELETE CASCADE
 		ON UPDATE CASCADE,
 	CONSTRAINT fkServicioEmpleadoEmpleado
 		FOREIGN KEY (fkEmpleado)
 		REFERENCES empleado (idEmpleado)
-		ON DELETE RESTRICT
+		ON DELETE CASCADE
 		ON UPDATE CASCADE
 );
 CREATE TABLE paqueteServicio(
@@ -134,12 +134,12 @@ CREATE TABLE paqueteServicio(
 	CONSTRAINT fkPaqueteServicioServicio
 		FOREIGN KEY (fkServicio)
 		REFERENCES servicio (idServicio)
-		ON DELETE RESTRICT
+		ON DELETE CASCADE
 		ON UPDATE CASCADE,
 	CONSTRAINT fkPaqueteServicioPaquete
 		FOREIGN KEY (fkPaquete)
 		REFERENCES paquete (idPaquete)
-		ON DELETE RESTRICT
+		ON DELETE CASCADE
 		ON UPDATE CASCADE
 );
 CREATE TABLE servicioInventario(
@@ -151,11 +151,11 @@ CREATE TABLE servicioInventario(
 	CONSTRAINT fkServicioInventarioServicio
 		FOREIGN KEY (fkServicio)
 		REFERENCES servicio (idServicio)
-		ON DELETE RESTRICT
+		ON DELETE CASCADE
 		ON UPDATE CASCADE,
 	CONSTRAINT fkServicioInventarioInventario
 		FOREIGN KEY (fkInventario)
 		REFERENCES inventario (idInventario)
-		ON DELETE RESTRICT
+		ON DELETE CASCADE
 		ON UPDATE CASCADE
 );
