@@ -1,4 +1,11 @@
 <?php
+	session_start();
 	session_unset();
-	session_destroy();
+	try {
+		session_destroy();
+	} catch (Exception $e) {
+		echo $e;
+	}
+	header("Location: ../index.php");
+	exit;
 ?>

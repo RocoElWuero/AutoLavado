@@ -45,6 +45,13 @@ input[type="text"] {
 	align-items: center;
 	height: 200px; /* Ajusta la altura del div según tus necesidades */
 }
+.message {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 10px; /* Ajusta la altura del div según tus necesidades */
+	color: red;
+}
 .background-image {
 	background-image: url("https://static.retail.autofact.cl/blog/c_img_740x370.ea3xf91k2alsmup.jpg");
 	background-repeat: no-repeat;

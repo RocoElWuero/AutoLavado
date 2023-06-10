@@ -1,8 +1,12 @@
 <?php
 	session_start();
+	if (! empty($_GET["status"])) {
+		$status = $_GET["status"];
+	} else {
+		$status = 0;
+	}
 	if (!empty($_POST)) {
-		$_SESSION['correo'] = $_POST['correo'];
-		//$correo = $_POST['correo'];
+		$_SESSION["idEmpleado"] = $_POST["idEmpleado"];
 	}
 	include "html/head.html";
 ?>
@@ -15,17 +19,19 @@
 		<h1>Administración de los paquetes/servicios de los automóviles</h1>
 		<div class="container">
 			<?php
-				if (empty($_SESSION['correo'])) {
-					?>
-						<form action="php/signup.php"> <!-- ESTE PIENSO CAMBIARLO POR login.php, ya que realmente queda mas para ese -->
-							<input type="text" name="email" id="email" placeholder="direction@domain.com" style="margin: 5px;" />
-							<br />
-							<input type="password" name="password" id="password" placeholder="Pa55w0rd+" />
-						</form>
-					<?php
+				if (empty($_SESSION["idEmpleado"]) && empty($_SESSION["correo"])) {
+					include "html/login.html";
+				} else {
+					include "php/data.php";
 				}
 			?>
 		</div>
+		<?php
+			if ($status == 1) {
+				echo "<div class=\"message\"><a>Correo y/o contraseña incorrectos.<a/></div>";
+			}
+		?>
 	</div>
+	<script type="text/javascript" src="js/site.js" />
 </body>
 </html>
