@@ -35,6 +35,7 @@
 			}
 		?>
 	</div>
+	<script type="text/javascript" src="lib/jquery/dist/jquery.min.js"></script>
 	<script type="text/javascript" src="js/site.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>

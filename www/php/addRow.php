@@ -3,8 +3,8 @@
 	$status = 0;
 	$jsonData = json_decode(file_get_contents('php://input'), true);
 	if (!empty($jsonData)) {
-		$carro = $jsonData["carro"];
-		$placas = $jsonData["placas"];
+		$modeloDelCarro = $jsonData["modeloDelCarro"];
+		$placasDelCarro = $jsonData["placasDelCarro"];
 		$nombreCliente = $jsonData["nombreCliente"];
 		$paterno = $jsonData["paterno"];
 		$materno = $jsonData["materno"];
@@ -19,7 +19,7 @@
 		$cantidad = $jsonData["cantidad"];
 
 		include "conectarBd.php";
-		$sql = "CALL agregarClienteYSuAuto ('".$carro."', '".$placas."', '".$nombreCliente."', '".$paterno."', '".$materno."', '".$telefono."', '".$correo."');";
+		$sql = "CALL agregarClienteYSuAuto ('".$modeloDelCarro."', '".$placasDelCarro."', '".$nombreCliente."', '".$paterno."', '".$materno."', '".$telefono."', '".$correo."');";
 		mysqli_query($conexion,$sql);
 		mysqli_close($conexion);
 

@@ -81,17 +81,22 @@ BEGIN
 	DECLARE _idPaqueteServicio NUMERIC(2,0);
 	DECLARE _idServicio NUMERIC(2,0);
 	DECLARE _fkCliente NUMERIC(2,0);
+	DECLARE _idEmpleado NUMERIC(2,0);
+	DECLARE _idServicioEmpleado NUMERIC(2,0);
 	SET _idVenta = (SELECT MAX(idVenta) FROM venta) + 1;
 	SET _idDetalleVenta = (SELECT MAX(idDetalleVenta) FROM detalleVenta) + 1;
 	SET _idPaquete = (SELECT MAX(idPaquete) FROM paquete) + 1;
 	SET _idPaqueteServicio = (SELECT MAX(idPaqueteServicio) FROM paqueteServicio) + 1;
 	SET _idServicio = (SELECT MAX(idServicio) FROM servicio) + 1;
 	SET _fkCliente = (SELECT MAX(idCliente) FROM cliente);
+	SET _idEmpleado = (SELECT MAX(idEmpleado) FROM empleado) + 1;
+	SET _idServicioEmpleado = (SELECT MAX(idServicioEmpleado) FROM servicioEmpleado) + 1;
 	INSERT INTO paquete (idPaquete,nombre,precio) VALUES (_idPaquete,nombrePaquete,precioPaquete);
 	INSERT INTO servicio (idServicio,nombre,precio) VALUES (_idServicio,nombreServicio,precioServicio);
 	INSERT INTO venta (idVenta,fecha,fkCliente) VALUES (_idVenta,fecha,_fkCliente);
 	INSERT INTO detalleVenta (idDetalleVenta,fecha,fkVenta,fkPaquete,fkServicio) VALUES (_idDetalleVenta,fecha,_idVenta,_idPaquete,_idServicio);
 	INSERT INTO paqueteServicio (idPaqueteServicio,fkServicio,fkPaquete) VALUES (_idPaqueteServicio,_idServicio,_idPaquete);
+	INSERT INTO servicioEmpleado (idServicioEmpleado,fkServicio,fkEmpleado) VALUES (_idServicioEmpleado,_idServicio,_idEmpleado);
 END //
 DELIMITER ;
 
