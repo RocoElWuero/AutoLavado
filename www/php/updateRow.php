@@ -1,4 +1,5 @@
 <?php
+	//CREAR ESTOS PROCEDURES
 	session_start();
 	$status = 0;
 	$jsonData = json_decode(file_get_contents('php://input'), true);
@@ -15,22 +16,19 @@
 		$_idCliente = $jsonData["_idCliente"];
 
 		include "conectarBd.php";
-		$sql = "CALL agregarInventario (".$_idInventario.", ".$_idServicioInventario.");";
+		$sql = "CALL actualizarInventario (".$_idInventario.", ".$_idServicioInventario.");";
 		mysqli_query($conexion,$sql);
-		unset($correo,$password);
 		mysqli_close($conexion);
 
 		include "conectarBd.php";
-		$sql = "CALL agregarVentaPaqueteYServicio (".$_idVenta", ".$_idDetalleVenta.", ".$_idPaquete.", ".$_idPaqueteServicio.", ".$_idServicio.");";
+		$sql = "CALL actualizarVentaPaqueteYServicio (".$_idVenta", ".$_idDetalleVenta.", ".$_idPaquete.", ".$_idPaqueteServicio.", ".$_idServicio.");";
 		mysqli_query($conexion,$sql);
-		unset($correo,$password);
 		mysqli_close($conexion);
 
 
 		include "conectarBd.php";
-		$sql = "CALL agregarClienteYSuAuto (".$_idTipoCarro.", ".$_idAuto.", ".$_idCliente.");";
+		$sql = "CALL actualizarClienteYSuAuto (".$_idTipoCarro.", ".$_idAuto.", ".$_idCliente.");";
 		mysqli_query($conexion,$sql);
-		unset($correo,$password);
 		mysqli_close($conexion);
 	}
 	header("Location: ../index.php?status=".$status);
