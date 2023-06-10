@@ -42,8 +42,9 @@
 								echo "<th>".$row["telefonoDelCliente"]."</th>";
 								echo "<th>".$row["placasDelCarro"]."</th>";
 								echo "<th>".$row["modeloDelCarro"]."</th>";
-								echo "<th><a class=\"bi bi-file-earmark-plus-fill btn btn-primary mx-2\" onclick=\"updateRow('".$_SESSION["idEmpleado"]."')\"></a></th>";
-								echo "<th><a class=\"bi bi-trash btn btn-danger\" onclick=\"deleteRow('".$_SESSION["idEmpleado"]."')\" /></a></tr>";
+								$ids = $row["idInventario"].",".$row["idServicioInventario"].",".$row["idVenta"].",".$row["idDetalleVenta"].",".$row["idPaquete"].",".$row["idPaqueteServicio"].",".$row["idServicio"].",".$row["idTipoCarro"].",".$row["idAuto"].",".$row["idCliente"];
+								echo "<th><a class=\"bi bi-file-earmark-plus-fill btn btn-primary mx-2\" onclick=\"updateRow(".$ids.")\"></a></th>";
+								echo "<th><a class=\"bi bi-trash btn btn-danger\" onclick=\"deleteRow(".$ids.")\" /></a></tr>";
 							}
 						} else {
 								echo "<tr><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th></tr>";

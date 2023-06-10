@@ -22,16 +22,19 @@
 				if (empty($_SESSION["idEmpleado"]) && empty($_SESSION["correo"])) {
 					include "html/login.html";
 				} else {
+					echo "<a class=\"my-2 bi bi-plus-lg btn btn-primary f-right\" onclick=\"showAddRow()\" style=\"margin: 5px;\" /></a><br />";
 					include "php/data.php";
 				}
 			?>
 		</div>
 		<?php
-			if ($status == 1) {
+			if (empty($_SESSION["idEmpleado"]) && empty($_SESSION["correo"]) && $status == 1) {
 				echo "<div class=\"message\"><a>Correo y/o contraseña incorrectos.<a/></div>";
+			} else if ($status == 1) {
+				echo "<div class=\"message\"><a>Error al actualizar/borrar el registro.<a/></div>";
 			}
 		?>
 	</div>
-	<script type="text/javascript" src="js/site.js" />
+	<script type="text/javascript" src="js/site.js"></script>
 </body>
 </html>

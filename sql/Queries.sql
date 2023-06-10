@@ -14,7 +14,19 @@ BEGIN
 		c.correo AS correoDelCliente,
 		c.telefono AS telefonoDelCliente,
 		a.placas AS placasDelCarro,
-		tc.nombre AS modeloDelCarro
+		tc.nombre AS modeloDelCarro,
+
+		tc.idTipoCarro AS idTipoCarro,
+		a.idAuto AS idAuto,
+		c.idCliente AS idCliente,
+		v.idVenta AS idVenta,
+		dv.idDetalleVenta AS idDetalleVenta,
+		p.idPaquete AS idPaquete,
+		ps.idPaqueteServicio AS idPaqueteServicio,
+		s.idServicio AS idServicio,
+		si.idServicioInventario AS idServicioInventario,
+		i.idInventario AS idInventario,
+		se.idServicioEmpleado AS idServicioEmpleado
 	FROM empleado AS e INNER JOIN servicioEmpleado AS se
 		ON (e.idEmpleado = se.fkEmpleado)
 			INNER JOIN servicio AS s
@@ -138,8 +150,8 @@ DELIMITER ;
 CALL eliminarClienteYSuAuto(5,5,5);
 
 /*
-	1. Agregar mas registros para el inventario, incluso si se repiten los productos, para poder actualizar los registros y a la hr de actualizar/borrar en la pagina, solo se vea afectado ese registro en especifico
-	Ya que el modelo de la BD, fue mal diseñado
+		1. Agregar mas registros para el inventario, incluso si se repiten los productos, para poder actualizar los registros y a la hr de actualizar/borrar en la pagina, solo se vea afectado ese registro en especifico
+		Ya que el modelo de la BD, fue mal diseñado
 		2. Crear los Procedures respectivos para el agregar/actualizar/borrar para cada una de las tablas correspondientes y que sean invocados desde sus PHP respectivos
 	3. En los botones (que implementar bootstrap-icons), en el atributo onclick, apunte a un Jquery (pasandole un array con los IDs de las tablas MySql a tratar) y este apunte a un PHP, el cual ejecutara un Procedure respectivo para ello
 */
